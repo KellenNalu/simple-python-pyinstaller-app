@@ -10,15 +10,6 @@ pipeline {
                 stash(name: 'compiled-results', includes: 'sources/*.py*')
             }
         }
-        stage('Deliver') { 
-            steps {
-                bat "pyinstaller --onefile sources/add2vals.py" 
-            }
-            post {
-                success {
-                    archiveArtifacts 'dist/add2vals' 
-                }
-            }
-        }
+      
     }
 }
